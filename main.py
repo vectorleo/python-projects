@@ -1,5 +1,12 @@
 import random 
 
+class Card():
+    def __init__(self, suit,rank):
+        self.suit = suit
+        self.rank = rank
+    def __str__(self):
+        return f"{self.rank['rank']} of {self.suit}"
+
 class Deck():
     def __init__(self):
         self.cards = []
@@ -16,7 +23,7 @@ class Deck():
         {"rank":"9","value": 9},
         {"rank":"K","value": 10},
         {"rank":"Q","value": 10},
-        {"rank":"J","value": 10}
+        {"rank":"J","value": 10} 
         ]
         
     
@@ -35,52 +42,52 @@ class Deck():
                 card = self.cards.pop()
                 cards_dealt.append(card)
         return cards_dealt 
-class Card():
-    def __init__(self, suit,rank):
-        self.suit = suit
-        self.rank = rank
-    def __str__(self):
-        return f"{self.rank['rank']}  of  {self.suit}"
+
 class Hand():
     def __init__(self,dealer=False):
-        self.card = []
+        self.cards = []
         self.value = 0
         self.dealer = dealer 
-    def add_card(self,card_list):
-        self.card.extend(card_list)
 
-    def calulate_value(self):
+    def add_card(self,card_list):
+        self.cards.extend(card_list) 
+
+    def cal_value(self):
         self.value = 0
         has_ace = False
 
         for card in self.cards:
-            card_value = int(card.rank["value"]) 
+            card_value = int(card.rank['value'])
             self.value += card_value
             if card.rank["rank"] == "A":
                 has_ace = True
-
         if has_ace and self.value > 21:
             self.value -= 10
 
-    def is_blackjack(self):
-        return self.get_value() == 21
-    
-    def display(self):
-        print(f'''{"Dealer's" if self.dealer else "your"}hand''')
-        for card in self.cards:
-            print(card)
-        
-        if not self.dealer:
-            print("value",self.get_value())
-        print()
-        
-
     def get_value(self):
-        self.calulate_value()
+        self.cal_value()
         return self.value
     
+    def is_blackjack(self):
+        return self.getvalue() == 21
+    
+    def display(self):
+        print(f'''{"dealer's"if self.dealer else "your"} hand''')
+        for card in self.cards:
+            print(card)
 
-hand 
+        if not self.dealer:
+            print("value:",self.get_value)
+        print()
+    
+
+
+deck = Deck()
+deck.shuffle()
+
+hand =  Hand()
+hand.add_card(deck.deal(2))
+print(hand.display())
     
 
 
