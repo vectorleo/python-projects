@@ -8,6 +8,7 @@ print("am thinking of a number form 1 to 20....")
 for guess_taken in range(1,7):
     print("take a guess.")
     guess = int(input())
+    # kkjkj
 
 
     if guess < secret_no:
