@@ -1,2 +1,2 @@
 # python-projects
-this is the reposortry of me learning python😁
+this is the repositories of me learning python😁
