@@ -4,8 +4,7 @@ def logtime(func):
       print("before")
       val = func()
       print("after")
-      return val
-    return wrapper
+    
 
  
 @logtime
@@ -22,7 +21,7 @@ hello()
 
 
 
-    def calulate_value(self):
+def calulate_value(self):
         self.value = 0
         has_ace = False
 
@@ -35,15 +34,15 @@ hello()
         if has_ace and self.value > 21:
             self.value -= 10
 
-    def is_blackjack(self):
+def is_blackjack(self):
         return self.get_value() == 21
 
-    def get_value(self):
+def get_value(self):
         self.calulate_value()
         return self.value   
     
 
-    def display(self):
+def display(self):
         print(f'''{"Dealer's" if self.dealer else "your"}hand''')
         for card in self.cards :
             print(card)
@@ -51,4 +50,4 @@ hello()
         if not self.dealer:
             print("value: ",self.get_value())
         print()
-        
+print("cow")
