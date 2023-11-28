@@ -24,5 +24,21 @@ text = str(pyperclip.paste())
 
 matches = []
 
+for group in phoneNO.findall(text):
+    phonenumber = "-".join([group[1],group[3],group[5]])
+    if group[6] != " ":
+        phonenumber += " x" + group[6]
+    matches.append(phonenumber)
+for groups in email.findall(text):
+    matches.append(group[0])
+
+if len(matches) > 0:
+    pyperclip.copy("\n".join(matches))
+    print("copied to clipboard: ")
+    print("\n".join(matches))
+else:
+    print('No phone numbers or email addresses found.')
+
+
 
 #todo paste to clipboard
