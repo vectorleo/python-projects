@@ -1,6 +1,6 @@
 
 import pyperclip
-# i saw a problem in typing tilte and coming back to chage the first letter to capital or the whole text.🤓
+# I saw a problem in typing the title and coming back to change the first letter to capital or the whole text.🤓
 text = pyperclip.paste()
 word = text.split(" ")
 changed = []
